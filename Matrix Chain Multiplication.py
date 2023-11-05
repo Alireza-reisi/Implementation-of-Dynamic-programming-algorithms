@@ -1,3 +1,46 @@
+def MinMult(n,d,p):
+   # ------------------------------------------------
+   # min_matrix save and found the number of minimum sup
+   # build min_matrix
+   min_matrix=[]
+   x=[0 for i in range (0,n)]
+   for i in range(0,n):
+      min_matrix.append(x)
+   
+   
+   # -------------------------------------------------
+   
+   for t in range (1,n-1):
+      for i in range (1,n-t):
+         j=i+t
+         min_matrix[i][j]=min
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ==================================================================================
+# ==================================================================================
+# ==================================================================================
+
 Matrixes=[]
 # A -> 20*2
 A=[[1,2],
@@ -59,3 +102,25 @@ Matrixes.append(C)
 Matrixes.append(D)
 # Matrixes[0]== A // Matrixes[1]== B // Matrixes[2]== C // Matrixes[3]== D
 # The Matrixes array is a 3D array
+
+
+
+# =======================================================================================
+# build d array:
+# d[0] d[1] ... d[n+1]    # n=the number of matrixes
+
+# d=[len(A),len(B),len(C),len(D),len(D[0])]
+d=[len(Matrixes[0]),len(Matrixes[1]),len(Matrixes[2]),len(Matrixes[3]),len(Matrixes[3][0])]
+
+# =======================================================================================
+# p matrix show us how sup matrixes    # The p matrix is filled by the function (MinMult)
+# build p matrix:  
+
+P_matrix=[]
+x=[0 for i in range (0,len(Matrixes))]
+for i in range(0,len(Matrixes)):
+   P_matrix.append(x)
+
+# =======================================================================================
+
+MinMult(len(Matrixes),d,P_matrix)
