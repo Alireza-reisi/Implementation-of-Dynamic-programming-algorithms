@@ -1,3 +1,11 @@
+def Minimum(i,j,min_matrix,d):
+   
+   for i in 
+   pass
+
+
+
+
 def MinMult(n,d,p):
    # ------------------------------------------------
    # min_matrix save and found the number of minimum sup
@@ -9,11 +17,13 @@ def MinMult(n,d,p):
    
    
    # -------------------------------------------------
-   
+   i=0
    for t in range (1,n-1):
-      for i in range (1,n-t):
-         j=i+t
-         min_matrix[i][j]=min
+         if (i+1)==t:
+            min_matrix[i][t]= (min_matrix[i][t-1]+ min_matrix[i+1][t])+(d[i]*d[t-1]*d[t])
+            
+         else:   
+            min_matrix[i][t]=Minimum(i,t,min_matrix,d)
    
 
 
