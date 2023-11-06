@@ -1,52 +1,31 @@
-def Minimum(i,j,min_matrix,d):
-   
-   for i in 
-   pass
-
-
-
-
-def MinMult(n,d,p):
+def MinMult(n,d):
+   global P_matrix
    # ------------------------------------------------
    # min_matrix save and found the number of minimum sup
    # build min_matrix
-   min_matrix=[]
-   x=[0 for i in range (0,n)]
-   for i in range(0,n):
-      min_matrix.append(x)
+   min_matrix=min_matrix=[[0]*n]*n
    
    
    # -------------------------------------------------
-   i=0
-   for t in range (1,n-1):
-         if (i+1)==t:
-            min_matrix[i][t]= (min_matrix[i][t-1]+ min_matrix[i+1][t])+(d[i]*d[t-1]*d[t])
-            
-         else:   
-            min_matrix[i][t]=Minimum(i,t,min_matrix,d)
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
+   for x in range(1,n):
+      i=1
+      while i<n-x :
+      # for i in range(1,n-x):
+         j=i+x
+         min=float('inf')
+         k=i
+         while k<=j-1:
+            z=min_matrix[i][k]+min_matrix[k+1][j]+((d[i-1]*d[k])*d[j])
+            if z<min:
+               min=z
+               P_matrix[i][j]=k
+            k=k+1
+         min_matrix[i][j]=min
+         i=i+1
+      
+            
 # ==================================================================================
 # ==================================================================================
 # ==================================================================================
@@ -125,12 +104,10 @@ d=[len(Matrixes[0]),len(Matrixes[1]),len(Matrixes[2]),len(Matrixes[3]),len(Matri
 # =======================================================================================
 # p matrix show us how sup matrixes    # The p matrix is filled by the function (MinMult)
 # build p matrix:  
-
-P_matrix=[]
-x=[0 for i in range (0,len(Matrixes))]
-for i in range(0,len(Matrixes)):
-   P_matrix.append(x)
+n=len(Matrixes)+1
+P_matrix=[[0]*n]*n
 
 # =======================================================================================
 
-MinMult(len(Matrixes),d,P_matrix)
+MinMult(n,d)
+print(P_matrix)
