@@ -3,8 +3,8 @@ def MinMult(n,d):
    # ------------------------------------------------
    # min_matrix save and found the number of minimum sup
    # build min_matrix
-   min_matrix=min_matrix=[[0]*n]*n
-   
+   # min_matrix=min_matrix=[[0]*n]*n
+   min_matrix=[[0 for i in range(n)] for x in range (n)]
    
    # -------------------------------------------------
    
@@ -105,9 +105,11 @@ d=[len(Matrixes[0]),len(Matrixes[1]),len(Matrixes[2]),len(Matrixes[3]),len(Matri
 # p matrix show us how sup matrixes    # The p matrix is filled by the function (MinMult)
 # build p matrix:  
 n=len(Matrixes)+1
-P_matrix=[[0]*n]*n
+# P_matrix=[[0]*n]*n
+P_matrix=[[0 for i in range(n)] for x in range (n)]
 
 # =======================================================================================
 
 MinMult(n,d)
-print(P_matrix)
+for i in range (len(P_matrix)):
+   print(P_matrix[i],end='\n')
