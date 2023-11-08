@@ -9,18 +9,16 @@ def choose (n,k):
     # ------------------------------
     # for knowing what save in Matrix, uncomment following line:
     
-    # for i in range(len(Matrix)): 
-    #     print(Matrix[i],end="\n")
+    for i in range(len(Matrix)): 
+        print(Matrix[i],end="\n")
     # ------------------------------    
     return Matrix[i][j]
-
 
 # ================================================================
 # getting input's:
 
 k=int(input("Enter total number:"))
 n=int(input("Enter the number of choices: "))
-
 
 anser=choose(n,k)
 print(anser)
