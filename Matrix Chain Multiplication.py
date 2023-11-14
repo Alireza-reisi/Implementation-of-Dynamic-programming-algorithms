@@ -1,18 +1,14 @@
+# min mult
 def MinMult(n,d):
-   global P_matrix
-   # ------------------------------------------------
+   #p matrix show us how sup matrixes    # The p matrix is filled by the function (MinMult)
+   # build p matrix:  
+   P_matrix=[[0 for i in range(n)] for x in range (n)]
    # min_matrix save and found the number of minimum sup
-   # build min_matrix
-   # min_matrix=min_matrix=[[0]*n]*n
+   # build min_matrix:
    min_matrix=[[0 for i in range(n)] for x in range (n)]
-   
    # -------------------------------------------------
-   
-   
    for x in range(1,n):
-      i=1
-      while i<n-x :
-      # for i in range(1,n-x):
+      for i in range(1,n-x):
          j=i+x
          min=float('inf')
          k=i
@@ -23,7 +19,8 @@ def MinMult(n,d):
                P_matrix[i][j]=k
             k=k+1
          min_matrix[i][j]=min
-         i=i+1
+         
+   return min_matrix,P_matrix
       
             
 # ==================================================================================
@@ -94,22 +91,25 @@ Matrixes.append(D)
 
 
 
-# =======================================================================================
+# ------------------------------------------------
 # build d array:
 # d[0] d[1] ... d[n+1]    # n=the number of matrixes
-
 # d=[len(A),len(B),len(C),len(D),len(D[0])]
 d=[len(Matrixes[0]),len(Matrixes[1]),len(Matrixes[2]),len(Matrixes[3]),len(Matrixes[3][0])]
 
-# =======================================================================================
-# p matrix show us how sup matrixes    # The p matrix is filled by the function (MinMult)
-# build p matrix:  
+# ------------------------------------------------
 n=len(Matrixes)+1
-# P_matrix=[[0]*n]*n
-P_matrix=[[0 for i in range(n)] for x in range (n)]
 
-# =======================================================================================
+min_matrix,P_matrix=MinMult(n,d)
 
-MinMult(n,d)
+for i in range (len(min_matrix)):
+   print(min_matrix[i],end='\n')
+
+print("-----------------------------------------")
+
 for i in range (len(P_matrix)):
    print(P_matrix[i],end='\n')
+   
+print("-----------------------------------------")
+   
+   
