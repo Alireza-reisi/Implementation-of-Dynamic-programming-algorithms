@@ -24,7 +24,22 @@ def MinMult(n,d):
       
             
 # ==================================================================================
-# ==================================================================================
+def OptimalParentheses(P_matrix,i,j):
+   if i==j:
+      print("M",i,end=" ")
+      return
+   else:
+      print("(",end="")
+      OptimalParentheses(P_matrix,i,P_matrix[i][j])
+      OptimalParentheses(P_matrix,P_matrix[i][j]+1,j)
+      print(")",end="")
+      return
+
+
+
+
+
+
 # ==================================================================================
 
 Matrixes=[]
@@ -112,4 +127,4 @@ for i in range (len(P_matrix)):
    
 print("-----------------------------------------")
    
-   
+OptimalParentheses(P_matrix,0,(len(P_matrix[0])-1))
