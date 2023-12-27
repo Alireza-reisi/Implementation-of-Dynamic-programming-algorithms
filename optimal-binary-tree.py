@@ -10,7 +10,7 @@ def MinMult(key,frequency,n):
             for w in range(i,j):
                 weight+=frequency[w]
             while k<=j:
-                z=optimal_weight[i][k-1]+optimal_weight[k][j]+weight
+                z=optimal_weight[i][k-1]+optimal_weight[k+1][j]+weight # Not complete #logical eror
                 if z<min:
                     min=z
                     optimal_key[i][j]=k
@@ -23,8 +23,11 @@ def MinMult(key,frequency,n):
 
 # ========================================================================
 
-key=[10,20,30,40]
-frequency=[4,2,6,3]
+# key=[10,20,30,40]
+key=[1,2,3,4,5]
+
+# frequency=[4,2,6,3]
+frequency=[0.3,0.05,0.08,0.45,0.12]
 optimal_weight,optimal_key=MinMult(key,frequency,len(key))
 
 # ========================================================================
